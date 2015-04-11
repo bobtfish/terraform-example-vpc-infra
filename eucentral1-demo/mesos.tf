@@ -10,7 +10,6 @@ module "mesos" {
     public_subnet_ids = "${terraform_remote_state.vpc.output.frontsubnets}"
     domain = "mesos.notanisp.net"
     vpc_id = "${terraform_remote_state.vpc.output.id}"
-    ssh_private_key_file = "../id_rsa"
     discovery_instance_profile = "temp-admin"
 }
 
