@@ -11,6 +11,7 @@ module "mesos" {
     domain = "mesos.notanisp.net"
     vpc_id = "${terraform_remote_state.vpc.output.id}"
     discovery_instance_profile = "temp-admin"
+    admin_iprange = "${var.admin_iprange}"
 }
 
 output "master_public_ips" {
