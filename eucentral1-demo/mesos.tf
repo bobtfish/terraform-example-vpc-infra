@@ -10,15 +10,16 @@ module "mesos" {
     public_subnet_ids = "${terraform_remote_state.vpc.output.frontsubnets}"
     domain = "mesos.notanisp.net"
     vpc_id = "${terraform_remote_state.vpc.output.id}"
-    discovery_instance_profile = "temp-admin"
+    discovery_instance_profile = "describe-instances"
     admin_iprange = "${var.admin_iprange}"
 }
-
-output "master_public_ips" {
-  value = "${module.mesos.master_public_ips}"
+output "mesos_api" {
+  value = "${module.mesos.mesos_api}"
 }
-
 output "marathon_api" {
   value = "${module.mesos.marathon_api}"
+}
+output "mesos_elb_dns_name" {
+  value = "${module.mesos.mesos_elb_dns_name}"
 }
 
