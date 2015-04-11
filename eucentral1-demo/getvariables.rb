@@ -12,8 +12,11 @@ output = {
       "description" => "An etcd cluster discovery token",
       "default" => IO.read(File.dirname(__FILE__) + '/../etcd_discovery_uri').chomp
     },
+    "admin_iprange" => {
+      "description" => "The IP range to lock administration down to",
+      "default" => IO.read(File.dirname(__FILE__) + '/../admin_iprange.txt').chomp
+    }
   }
 }
 
 puts JSON.pretty_generate(output)
-
